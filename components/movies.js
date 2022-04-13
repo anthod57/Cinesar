@@ -8,7 +8,7 @@ export const Movies = (props) => {
             <Slider onClick={() => { updateSlider() }}>
                 <h2>{props.title}</h2>
                 <SliderContainer>
-                    {props.data ? props.data?.results.map((movie, index) => {
+                    {props.data.results ? props.data.results?.map((movie, index) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
@@ -17,7 +17,7 @@ export const Movies = (props) => {
                             </Slide>
                         )
                     }) : ""}
-                    {props.data ? props.data?.results.map((movie, index) => {
+                    {props.data.results ? props.data.results?.map((movie, index) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
