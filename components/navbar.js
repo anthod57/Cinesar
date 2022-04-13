@@ -29,7 +29,7 @@ export const Navbar = () => {
                         <ul>
                             <li className="active">Accueil</li>
                             <li>Horaires</li>
-                            <li>Films à l'affiche</li>
+                            <li>{"Films à l'affiche"}</li>
                             <li>Prochainement</li>
                             <li>Informations</li>
                             <li>Mon compte</li>
