@@ -42,7 +42,7 @@ export default function Home(movies) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
   const resNowPlaying = await fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + process.env.API_KEY + '&language=fr-FR&page=1')
   const nowPlaying = await resNowPlaying.json()
 
