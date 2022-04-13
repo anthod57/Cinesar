@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { Navbar } from "../components/navbar"
 import { Movies } from "../components/movies"
 import { News } from '../components/news'
+import axios from 'axios'
+import { server } from "../config"
 
 export default function Home(data) {
 
@@ -42,11 +44,12 @@ export default function Home(data) {
 }
 
 Home.getInitialProps = async (ctx) => {
-  const resNowPlaying = await fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + process.env.API_KEY + '&language=fr-FR&page=1')
-  const nowPlaying = await resNowPlaying.json()
+  const resNowPlaying = await axios(`${server}/now_playing?api_key=${process.env.API_KEY}&language=fr-FR&page=1`)
+  const resUpcoming = await axios(`${server}/upcoming?api_key=${process.env.API_KEY}&language=fr-FR&page=1`)
 
-  const resUpcoming = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=' + process.env.API_KEY + '&language=fr-FR&page=1')
-  const upcoming = await resUpcoming.json()
+  const nowPlaying = resNowPlaying.data;
+  const upcoming = resUpcoming.data;
+
   return {
     movies: {
       nowPlaying,
