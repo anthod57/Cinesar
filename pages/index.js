@@ -5,7 +5,7 @@ import { Navbar } from "../components/navbar"
 import { Movies } from "../components/movies"
 import { News } from '../components/news'
 
-export default function Home(movies) {
+export default function Home(data) {
 
   useEffect(() => {
     document.getElementById("font-awesome").setAttribute("media", "all");
@@ -21,17 +21,16 @@ export default function Home(movies) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
       </Head>
-
       <Navbar></Navbar>
       <main>
         <section id="movies" style={{backgroundColor: "#17192e"}}>
-          <Movies title={"Films à l'affiche"} data={movies.nowPlaying}></Movies>
+          <Movies title={"Films à l'affiche"} data={data.movies.nowPlaying}></Movies>
         </section>
         <section id="news">
           <News></News>
         </section>
         <section style={{backgroundColor: "#17192e"}}>
-        <Movies title={"Prochainement"} data={movies.upcoming}></Movies>
+        <Movies title={"Prochainement"} data={data.movies.upcoming}></Movies>
         </section>
       </main>
 
@@ -42,14 +41,14 @@ export default function Home(movies) {
   )
 }
 
-export async function getServerSideProps(context) {
+Home.getInitialProps = async (ctx) => {
   const resNowPlaying = await fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=' + process.env.API_KEY + '&language=fr-FR&page=1')
   const nowPlaying = await resNowPlaying.json()
 
   const resUpcoming = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=' + process.env.API_KEY + '&language=fr-FR&page=1')
   const upcoming = await resUpcoming.json()
   return {
-    props: {
+    movies: {
       nowPlaying,
       upcoming
     },
