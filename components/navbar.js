@@ -1,10 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import { Nav, Container, LogoContainer, MobileMenuIcon, Menu } from "../styles/StyledNavbar";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
 
     const [showMobileMenu, setMobileMenu] = useState(false);
     const MenuRef = React.createRef();
+
+    useEffect(() => {
+        if(props.active > -1){
+            console.log(MenuRef.current.children[0].children[props.active].className = "active");
+        }
+    })
 
     const showMenu = () => {
         setMobileMenu(!showMobileMenu);
@@ -27,7 +33,7 @@ export const Navbar = () => {
                     </MobileMenuIcon>
                     <Menu ref={MenuRef} style={{right: "-50%"}}>
                         <ul>
-                            <li className="active">Accueil</li>
+                            <li>Accueil</li>
                             <li>Horaires</li>
                             <li>{"Films à l'affiche"}</li>
                             <li>Prochainement</li>

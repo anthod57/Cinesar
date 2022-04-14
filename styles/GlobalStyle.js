@@ -53,6 +53,8 @@ export const GlobalStyle = createGlobalStyle`
         transition-property: color, background-color;
         background-color: #D90429;
         color: white;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
             background-color: #e30e33;

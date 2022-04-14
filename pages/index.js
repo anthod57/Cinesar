@@ -6,6 +6,7 @@ import { Movies } from "../components/movies"
 import { News } from '../components/news'
 import axios from 'axios'
 import { server } from "../config"
+import { Trailer } from '../components/trailer'
 
 export default function Home(data) {
 
@@ -23,16 +24,17 @@ export default function Home(data) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
       </Head>
-      <Navbar></Navbar>
+      <Navbar active={0}></Navbar>
+      <Trailer id={"trailer-container"}></Trailer>
       <main>
-        <section id="movies" style={{backgroundColor: "#17192e"}}>
-          <Movies title={"Films à l'affiche"} data={data.movies.nowPlaying}></Movies>
+        <section id="movies" style={{ backgroundColor: "#17192e" }}>
+          <Movies title={"Films à l'affiche"} data={data.nowPlaying}></Movies>
         </section>
         <section id="news">
           <News></News>
         </section>
-        <section style={{backgroundColor: "#17192e"}}>
-        <Movies title={"Prochainement"} data={data.movies.upcoming}></Movies>
+        <section style={{ backgroundColor: "#17192e" }}>
+          <Movies title={"Prochainement"} data={data.upcoming}></Movies>
         </section>
       </main>
 
@@ -43,15 +45,16 @@ export default function Home(data) {
   )
 }
 
-Home.getInitialProps = async (ctx) => {
-  const resNowPlaying = await axios(`${server}/now_playing?api_key=${process.env.API_KEY}&language=fr-FR&page=1`)
-  const resUpcoming = await axios(`${server}/upcoming?api_key=${process.env.API_KEY}&language=fr-FR&page=1`)
+export async function getServerSideProps(context) {
+  const header = {'Content-Type': 'application/json;charset=utf-8'};
+  const resNowPlaying = await axios(`${server}/now_playing?api_key=${process.env.API_KEY}&language=fr-FR&page=1`, header)
+  const resUpcoming = await axios(`${server}/upcoming?api_key=${process.env.API_KEY}&language=fr-FR&page=1`, header)
 
   const nowPlaying = resNowPlaying.data;
   const upcoming = resUpcoming.data;
 
   return {
-    movies: {
+    props: {
       nowPlaying,
       upcoming
     },

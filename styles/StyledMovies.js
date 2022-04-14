@@ -79,20 +79,88 @@ export const Slide = styled.div`
         aspect-ratio: 1/1.5;
         width: 100%;
         position: relative;
+        z-index: 3;
         box-shadow: 0px 0px 14px 3px #000000;
+        transition: all 0.8s;
+        -webkit-touch-callout: none;      
+    }
+
+    
+    .back {
+        transform: rotateY(180deg);
+        position: absolute;
+        color: white;
+        width: 250px;
+        height: 375px;
+        z-index: 2;
+        transition: all 0.8s;
+        text-align: center;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+
+        h3 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+
+        .overview {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 10; /* number of lines to show */
+                    line-clamp: 10; 
+            -webkit-box-orient: vertical;
+            font-size: 0.8em;
+        }
+
+        .more {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+            justify-content: end;
+
+            button {
+                width: 100%;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                flex-grow: 1;
+                margin: 5px 0;
+                max-height: 40px;
+            }
+        }
     }
 
     @media only screen and (min-width: 768px){
         width: 340px;
+
         .picture {
+            height: 400px;       
+        }
+
+        .back {
+            width: 300px;
             height: 400px;
-            
         }
     }
 
     &:hover {
-        transform: scale(1.02);
+        transform: rotateY(180deg);
         cursor: pointer;
+
+        .back {
+            opacity: 1;
+            z-index: 3;
+        }
+
+        .picture {
+            z-index: 2;
+            filter: blur(8px) brightness(0.2);
+        }
     }
 `
 

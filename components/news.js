@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image';
+import Image from "./image";
 import { Container, Wrapper, Article } from '../styles/StyledNews';
 
 export const News = () => {

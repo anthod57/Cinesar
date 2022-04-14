@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ['image.tmdb.org'],
     formats: ['image/avif', 'image/webp'],
+  },
+  publicRuntimeConfig: {
+    apiKey: process.env.API_KEY,
   }
 }
 
