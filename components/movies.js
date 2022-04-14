@@ -18,7 +18,7 @@ export const Movies = (props) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
-                                    <Image quality={100} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} loading="lazy"/>
+                                    <Image quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} loading="lazy"/>
                                 </div>
                             </Slide>
                         )
@@ -27,7 +27,7 @@ export const Movies = (props) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
-                                    <Image quality={100} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} loading="lazy"/>
+                                    <Image placeholder="blur" blurDataURL="/images/placeholder.jpg" quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} loading="lazy"/>
                                 </div>
                             </Slide>
                         )
