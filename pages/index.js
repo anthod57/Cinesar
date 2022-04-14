@@ -8,6 +8,8 @@ import axios from 'axios'
 import { server } from "../config"
 import { Trailer } from '../components/trailer'
 
+const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
+
 export default function Home(data) {
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function Home(data) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
       </Head>
       <Navbar active={0}></Navbar>
       <Trailer id={"trailer-container"}></Trailer>
@@ -46,10 +48,9 @@ export default function Home(data) {
 }
 
 Home.getInitialProps = async (ctx) => {
-  try {
-    const header = { 'Content-Type': 'application/json;charset=utf-8' };
-    const resNowPlaying = await axios.get(`${server}/now_playing?api_key=${process.env.API_KEY}&language=fr-FR&page=1`, header)
-    const resUpcoming = await axios.get(`${server}/upcoming?api_key=${process.env.API_KEY}&language=fr-FR&page=1`, header)
+
+    const resNowPlaying = await axios.get(`${HOST}/api/movies?from=now_playing`)
+    const resUpcoming = await axios.get(`${HOST}/api/movies?from=upcoming`)
 
     const nowPlaying = resNowPlaying.data;
     const upcoming = resUpcoming.data;
@@ -60,9 +61,5 @@ Home.getInitialProps = async (ctx) => {
         upcoming
       },
     }
-  } catch (error) {
-    return {
-      items: null
-    } 
-  }
+
 }
