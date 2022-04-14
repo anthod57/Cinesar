@@ -60,7 +60,7 @@ export const SliderContainer = styled.div`
     @media only screen and (min-width: 768px){
         width: 100%;
         position: relative;
-        animation: ${props => props.animate == false ? "" : moveSlideshowMobile} 40s linear infinite;
+        animation: ${props => props.animate == false ? "" : moveSlideshowDesktop} 40s linear infinite;
     }   
 `
 
