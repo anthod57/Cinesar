@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import Image from 'next/image'
+import Image from "./image";
 import { Slider, SliderContainer, Slide } from '../styles/StyledMovies';
 
 export const Movies = (props) => {
@@ -18,7 +18,7 @@ export const Movies = (props) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
-                                    <Image quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy"/>
+                                    <Image placeholder="blur" blurDataURL="/images/placeholder.jpg" quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy"/>
                                 </div>
                             </Slide>
                         )
