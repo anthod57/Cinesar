@@ -8,6 +8,7 @@ import { server } from '../config';
 
 export const Movies = (props) => {
 
+    //Get youtube video key of the trailer and show the embedded player
     const showTrailer = async (id) => {
         const res = await axios(`/api/trailer?id=${id}`);
         const key = res.data;

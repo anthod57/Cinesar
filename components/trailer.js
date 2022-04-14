@@ -5,10 +5,6 @@ export const Trailer = (data) => {
 
     const trailerContainer = React.createRef();
 
-    useEffect(() => {
-
-    }, [data])
-
     return (
         <>
             <Container id={data.id} style={{display: "none"}} ref={trailerContainer} onClick={() => {trailerContainer.current.style = "display: none;"}}>

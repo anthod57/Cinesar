@@ -8,6 +8,11 @@ export const GlobalStyle = createGlobalStyle`
         border: 0; 
     }
 
+    *:focus {
+        outline: none;
+    }
+
+
     html, body {
         background-color: #2B2D42;
         font-family: 'Roboto', sans-serif;
@@ -63,5 +68,13 @@ export const GlobalStyle = createGlobalStyle`
         &:active {
             background-color: #c50015;
         }
+    }
+
+    input {
+        padding: 0.8rem 1.25rem;
+        border: #4e527a 1px solid;
+        background-color:#17192e;
+        color: white;
+        margin: 1em;
     }
 `;

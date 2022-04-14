@@ -1,18 +1,20 @@
 import { useEffect } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import { Navbar } from "../components/navbar"
 import { Movies } from "../components/movies"
 import { News } from '../components/news'
 import axios from 'axios'
-import { server } from "../config"
 import { Trailer } from '../components/trailer'
+import { Newsletter } from '../components/newsletter'
+import { Footer } from '../components/footer'
 
 const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
 
 export default function Home(data) {
 
+  
   useEffect(() => {
+    // Make font-awesome css only load once page is fully loaded to avoid render-blocking
     document.getElementById("font-awesome").setAttribute("media", "all");
   }, [])
 
@@ -26,7 +28,9 @@ export default function Home(data) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
       </Head>
+
       <Navbar active={0}></Navbar>
+
       <Trailer id={"trailer-container"}></Trailer>
       <main>
         <section id="movies" style={{ backgroundColor: "#17192e" }}>
@@ -38,7 +42,11 @@ export default function Home(data) {
         <section style={{ backgroundColor: "#17192e" }}>
           <Movies title={"Prochainement"} data={data.movies.upcoming}></Movies>
         </section>
+        <section id="newsletter">
+          <Newsletter></Newsletter>
+        </section>
       </main>
+      <Footer></Footer>
 
       <link href={"https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap"} rel="stylesheet" />
       <link rel="stylesheet" id="font-awesome" media="print" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
@@ -47,6 +55,7 @@ export default function Home(data) {
   )
 }
 
+// Get upcomings and now playing movies
 Home.getInitialProps = async (ctx) => {
 
     const resNowPlaying = await axios.get(`${HOST}/api/movies?from=now_playing`)
@@ -61,5 +70,4 @@ Home.getInitialProps = async (ctx) => {
         upcoming
       },
     }
-
 }

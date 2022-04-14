@@ -149,15 +149,17 @@ export const Slide = styled.div`
     }
 
     &:hover {
-        transform: rotateY(180deg);
+        
         cursor: pointer;
 
         .back {
+            transform: rotateY(0deg);
             opacity: 1;
             z-index: 3;
         }
 
         .picture {
+            transform: rotateY(180deg);
             z-index: 2;
             filter: blur(8px) brightness(0.2);
         }

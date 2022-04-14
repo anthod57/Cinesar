@@ -7,8 +7,9 @@ export const Navbar = (props) => {
     const MenuRef = React.createRef();
 
     useEffect(() => {
+        // Make current link active (depends of props.active index)
         if(props.active > -1){
-            console.log(MenuRef.current.children[0].children[props.active].className = "active");
+            MenuRef.current.children[0].children[props.active].className = "active";
         }
     })
 
