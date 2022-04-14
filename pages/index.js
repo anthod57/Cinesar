@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Navbar } from "../components/navbar"
@@ -10,18 +10,7 @@ import { Trailer } from '../components/trailer'
 
 export default function Home(data) {
 
-  const [nowPlaying, setNowPlaying] = useState([]);
-  const [upcoming, setUpcoming] = useState([]);
-
   useEffect(() => {
-    axios.get(`${server}/now_playing?api_key=93d598dddc45bd2e2cbf1b356ff6e38e&language=fr-FR&page=1`).then(response => setNowPlaying(response.data));
-    axios.get(`${server}/upcoming?api_key=93d598dddc45bd2e2cbf1b356ff6e38e&language=fr-FR&page=1`).then(response => setUpcoming(response.data));
-
-    
-    
-
-    console.log(nowPlaying);
-
     document.getElementById("font-awesome").setAttribute("media", "all");
   }, [])
 
@@ -39,13 +28,13 @@ export default function Home(data) {
       <Trailer id={"trailer-container"}></Trailer>
       <main>
         <section id="movies" style={{ backgroundColor: "#17192e" }}>
-          <Movies title={"Films à l'affiche"} data={nowPlaying}></Movies>
+          <Movies title={"Films à l'affiche"} data={data.movies.nowPlaying}></Movies>
         </section>
         <section id="news">
           <News></News>
         </section>
         <section style={{ backgroundColor: "#17192e" }}>
-          <Movies title={"Prochainement"} data={upcoming}></Movies>
+          <Movies title={"Prochainement"} data={data.movies.upcoming}></Movies>
         </section>
       </main>
 
@@ -56,25 +45,24 @@ export default function Home(data) {
   )
 }
 
-// Home.getInitialProps = async (ctx) => {
-//   console.log(ctx);
-//   try {
-//     const header = { 'Content-Type': 'application/json;charset=utf-8' };
-//     const resNowPlaying = await axios.get(`${server}/now_playing?api_key=${process.env.API_KEY}&language=fr-FR&page=1`, header)
-//     const resUpcoming = await axios.get(`${server}/upcoming?api_key=${process.env.API_KEY}&language=fr-FR&page=1`, header)
+Home.getInitialProps = async (ctx) => {
+  try {
+    const header = { 'Content-Type': 'application/json;charset=utf-8' };
+    const resNowPlaying = await axios.get(`${server}/now_playing?api_key=${process.env.API_KEY}&language=fr-FR&page=1`, header)
+    const resUpcoming = await axios.get(`${server}/upcoming?api_key=${process.env.API_KEY}&language=fr-FR&page=1`, header)
 
-//     const nowPlaying = resNowPlaying.data;
-//     const upcoming = resUpcoming.data;
+    const nowPlaying = resNowPlaying.data;
+    const upcoming = resUpcoming.data;
 
-//     return {
-//       movies: {
-//         nowPlaying,
-//         upcoming
-//       },
-//     }
-//   } catch (error) {
-//     return {
-//       items: null
-//     } 
-//   }
-// }
+    return {
+      movies: {
+        nowPlaying,
+        upcoming
+      },
+    }
+  } catch (error) {
+    return {
+      items: null
+    } 
+  }
+}
