@@ -6,9 +6,10 @@ import { News } from '../components/news'
 import axios from 'axios'
 import { Newsletter } from '../components/newsletter'
 import { Footer } from '../components/footer'
-import { HOST } from '../config'
 
 export default function Home(data) {
+
+  const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
 
   const MENU_LINKS = [
     {

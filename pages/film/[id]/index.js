@@ -10,6 +10,8 @@ import axios from "axios";
 
 const Film = (data) => {
 
+    const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
+
     const MENU_LINKS = [
         {
           text: "Accueil",
