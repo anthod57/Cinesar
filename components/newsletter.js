@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 import { Container, Wrapper, Form } from "../styles/StyledNewsletter";
 
@@ -13,7 +14,7 @@ export const Newsletter = () => {
                             <input type="email" id="email-input" name="email-input" placeholder="Mon e-mail *" /><button type="submit">Confirmer</button>
                         </div>
                         <span>* Champ obligatoire</span>
-                        <span className="legal-mentions">Mentions légales</span>
+                        <Link href="/"><a><span className="legal-mentions">Mentions légales</span></a></Link>
                     </Form>
                 </Wrapper>
             </Container>

@@ -1,37 +1,33 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    position: fixed;
+    position: absolute;
     height: 100vh;
-    width: 100vw;
-    padding: 1em;
-    padding-top: calc(1em + 80px);
+    width: 100%;
+    background-color: #000000d6;
     z-index: 5;
-    background-color: #000000cc;
-`;
+    top: 0px;
+    padding: 1em;
+`
 
 export const Wrapper = styled.div`
-    overflow: hidden;
-    position: relative;
-    width:100%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 
-    &:after {
-        padding-top: 56.25%;
-        display: block;
-        content: '';
-    }
 
     iframe {
         aspect-ratio: 16/9;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: auto;
         max-width: 1280px;
+        height: auto;
     }
 
-`;
+    @media only screen and (min-width: 768px){
+        padding: 5em;
+    }
+`

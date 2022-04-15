@@ -2,22 +2,8 @@ import React, { useState, useRef, useEffect } from 'react'
 import Image from "./image";
 import Link from 'next/link';
 import { Slider, SliderContainer, Slide } from '../styles/StyledMovies';
-import { Trailer } from './trailer';
-import axios from 'axios';
-import { server } from '../config';
 
 export const Movies = (props) => {
-
-    //Get youtube video key of the trailer and show the embedded player
-    const showTrailer = async (id) => {
-        const res = await axios(`/api/trailer?id=${id}`);
-        const key = res.data;
-
-        document.getElementById("trailer-container").style = "";
-        document.getElementById("trailer-iframe").src = `https://www.youtube.com/embed/${key}`
-
-    }
-
     return (
         <>
             <Slider>
@@ -35,7 +21,6 @@ export const Movies = (props) => {
                                     <p className="overview">{movie.overview}</p>
                                     <div className="more">
                                         <Link href={`/film/${movie.id}`}><button>{"Infos & horaires"}</button></Link>
-                                        <button onClick={() => { showTrailer(movie.id) }}>Bande annonce</button>
                                         <button>Réserver</button>
                                     </div>
                                 </div>
@@ -54,7 +39,6 @@ export const Movies = (props) => {
                                     <p className="overview">{movie.overview}</p>
                                     <div className="more">
                                         <Link href={`/film/${movie.id}`}><button>{"Infos & horaires"}</button></Link>
-                                        <button onClick={() => { showTrailer(movie.id) }}>Bande annonce</button>
                                         <button>Réserver</button>
                                     </div>
                                 </div>

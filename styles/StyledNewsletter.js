@@ -50,11 +50,6 @@ export const Form = styled.form`
         margin: 1em;
     }
 
-    .legal-mentions {
-            text-decoration: underline;
-            text-decoration-color: white;
-    }
-
     @media only screen and (min-width: 768px){
         .newsletter-input {
             input {

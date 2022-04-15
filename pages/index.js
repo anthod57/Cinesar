@@ -4,13 +4,38 @@ import { Navbar } from "../components/navbar"
 import { Movies } from "../components/movies"
 import { News } from '../components/news'
 import axios from 'axios'
-import { Trailer } from '../components/trailer'
 import { Newsletter } from '../components/newsletter'
 import { Footer } from '../components/footer'
-
-const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
+import { HOST } from '../config'
 
 export default function Home(data) {
+
+  const MENU_LINKS = [
+    {
+      text: "Accueil",
+      link: "/"
+    },
+    {
+      text: "Horaires",
+      link: "/horaires"
+    },
+    {
+      text: "Films à l'affiche",
+      link: "/films-a-l-affiche"
+    },
+    {
+      text: "Prochainement",
+      link: "/prochainement"
+    },
+    {
+      text: "Informations",
+      link: "/informations"
+    },
+    {
+      text: "Mon compte",
+      link: "/login"
+    },
+  ]
 
   
   useEffect(() => {
@@ -29,9 +54,8 @@ export default function Home(data) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
       </Head>
 
-      <Navbar active={0}></Navbar>
+      <Navbar menu={MENU_LINKS} active={0}></Navbar>
 
-      <Trailer id={"trailer-container"}></Trailer>
       <main>
         <section id="movies" style={{ backgroundColor: "#17192e" }}>
           <Movies title={"Films à l'affiche"} data={data.movies.nowPlaying}></Movies>
@@ -46,8 +70,8 @@ export default function Home(data) {
           <Newsletter></Newsletter>
         </section>
       </main>
-      <Footer></Footer>
-
+      <Footer menu={MENU_LINKS}></Footer>
+      
       <link href={"https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap"} rel="stylesheet" />
       <link rel="stylesheet" id="font-awesome" media="print" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
 

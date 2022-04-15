@@ -33,6 +33,10 @@ export const GlobalStyle = createGlobalStyle`
         font-family: "Font Awesome 6 Free";
     }
 
+    a, a:hover, a:visited, a:active {
+        color: inherit;
+    }
+
     main {
         height: 100%;
         width: 100%;
@@ -51,6 +55,7 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         border-radius: 0.75rem;
         display: flex;
+        cursor: pointer;
         align-items: center;
         text-transform: uppercase;
         letter-spacing: 1px;

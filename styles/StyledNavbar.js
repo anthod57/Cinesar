@@ -8,6 +8,11 @@ export const Nav = styled.div`
     box-shadow: 2px 2px 15px 0px #000000;
     position: fixed;
     z-index: 3;
+
+    a, a:hover, a:visited, a:active {
+        text-decoration: none;
+        height: 100%;
+    } 
 `
 
 export const Container = styled.div`
@@ -67,6 +72,7 @@ export const Menu = styled.div`
         li {
             font-size: 1.2em;
             padding: 5px;
+            transition: all 0.1s linear;
 
             &:hover {
                 background-color: #640003;

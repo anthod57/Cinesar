@@ -1,17 +1,34 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from "react";
 import { Container, Wrapper } from "../styles/StyledTrailer";
 
-export const Trailer = (data) => {
+export const Trailer = (props) => {
+  const TrailerContainer = React.createRef();
+  const [trailer, setTrailer] = useState(null);
 
-    const trailerContainer = React.createRef();
+  useEffect(() => {
+    setTrailer(props.trailerUrl)
+    console.log(props);
+  }, [props]);
 
-    return (
-        <>
-            <Container id={data.id} style={{display: "none"}} ref={trailerContainer} onClick={() => {trailerContainer.current.style = "display: none;"}}>
-                <Wrapper>
-                    <iframe id={"trailer-iframe"} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                </Wrapper>
-            </Container>
-        </>
-    )
-}
+  return (
+    <>
+      <Container
+        ref={TrailerContainer}
+        style={trailer ? {} : { display: "none" }}
+        onClick={() => {
+            setTrailer(null);
+        }}
+      >
+        <Wrapper>
+          <iframe
+            src={trailer ? trailer : ""}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </Wrapper>
+      </Container>
+    </>
+  );
+};

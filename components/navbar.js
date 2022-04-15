@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Nav, Container, LogoContainer, MobileMenuIcon, Menu } from "../styles/StyledNavbar";
+import Link from 'next/link';
 
 export const Navbar = (props) => {
 
@@ -34,12 +35,11 @@ export const Navbar = (props) => {
                     </MobileMenuIcon>
                     <Menu ref={MenuRef} style={{right: "-50%"}}>
                         <ul>
-                            <li>Accueil</li>
-                            <li>Horaires</li>
-                            <li>{"Films à l'affiche"}</li>
-                            <li>Prochainement</li>
-                            <li>Informations</li>
-                            <li>Mon compte</li>
+                            {props.menu?.map((item, index) => {
+                                return(
+                                    <Link key={index} href={item.link}><a><li onClick={showMenu}>{item.text}</li></a></Link>
+                                )
+                            })}
                         </ul>
                     </Menu>
                 </Container>

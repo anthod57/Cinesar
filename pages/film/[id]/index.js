@@ -3,8 +3,46 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Navbar } from '../../../components/navbar'
+import { Footer } from '../../../components/footer'
+import { Movie } from '../../../components/movie'
+import { HOST } from '../../../config'
+import axios from "axios";
 
-const Film = () => {
+const Film = (data) => {
+
+    const MENU_LINKS = [
+        {
+          text: "Accueil",
+          link: "/"
+        },
+        {
+          text: "Horaires",
+          link: "/horaires"
+        },
+        {
+          text: "Films à l'affiche",
+          link: "/films-a-l-affiche"
+        },
+        {
+          text: "Prochainement",
+          link: "/prochainement"
+        },
+        {
+          text: "Informations",
+          link: "/informations"
+        },
+        {
+          text: "Mon compte",
+          link: "/login"
+        },
+      ]
+
+      useEffect(() => {
+        // Make font-awesome css only load once page is fully loaded to avoid render-blocking
+        document.getElementById("font-awesome").setAttribute("media", "all");
+      }, [])
+
+
     return (
         <>
             <Head>
@@ -15,10 +53,13 @@ const Film = () => {
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
             </Head>
-            <Navbar active={-1}></Navbar>
-            <main>
+            <Navbar menu={MENU_LINKS} active={-1}></Navbar>
 
+            <main>
+                <Movie data={data.data.movie}></Movie>
             </main>
+
+            <Footer menu={MENU_LINKS}></Footer>
 
             <link href={"https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap"} rel="stylesheet" />
             <link rel="stylesheet" id="font-awesome" media="print" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
@@ -29,3 +70,13 @@ const Film = () => {
 
 
 export default Film;
+
+Film.getInitialProps = async (ctx) => {
+    const res = await axios.get(`${HOST}/api/movie?id=${ctx.query.id}`)
+    const movie = res.data;
+    return {
+      data: {
+        movie
+      },
+    }
+}
