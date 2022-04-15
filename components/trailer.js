@@ -7,7 +7,6 @@ export const Trailer = (props) => {
 
   useEffect(() => {
     setTrailer(props.show)
-    console.log(props.trailer)
   }, [props]);
 
   return (
@@ -21,7 +20,8 @@ export const Trailer = (props) => {
       >
         <Wrapper>
           <iframe
-            src={showTrailer ? props.trailerUrl : ""}
+            key={showTrailer}
+            src={props.trailerUrl}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
