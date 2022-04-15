@@ -96,8 +96,9 @@ export default function Home(data) {
   );
 }
 
+
 // Get upcomings and now playing movies
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
   const nowPlayingReq = axios.get(`${HOST}/api/movies?from=now_playing`);
   const upcomingReq = axios.get(`${HOST}/api/movies?from=upcoming`);
 
