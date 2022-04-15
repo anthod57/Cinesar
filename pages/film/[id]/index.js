@@ -7,9 +7,9 @@ import { Footer } from '../../../components/footer'
 import { Movie } from '../../../components/movie'
 import axios from "axios";
 
-const Film = (data) => {
+const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
 
-    const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
+const Film = (data) => {
 
     const MENU_LINKS = [
         {
