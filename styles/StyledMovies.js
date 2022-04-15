@@ -81,7 +81,7 @@ export const Slide = styled.div`
         position: relative;
         z-index: 3;
         box-shadow: 0px 0px 14px 3px #000000;
-        transition: all 0.8s;
+        transition: all 0.5s;
         -webkit-touch-callout: none;      
     }
 
@@ -93,7 +93,7 @@ export const Slide = styled.div`
         width: 250px;
         height: 375px;
         z-index: 2;
-        transition: all 0.8s;
+        transition: all 0.5s;
         text-align: center;
         padding: 5px;
         display: flex;
