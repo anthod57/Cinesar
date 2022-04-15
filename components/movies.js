@@ -14,21 +14,39 @@ export const Movies = (props) => {
                 <SliderContainer ref={lazyRoot}>
                     {/* Display 20 max movies */}
                     {props.data.results ? props.data.results.slice(0, 20).map((movie, index) => {
-                        return (
-                            <Slide key={index}>
-                                <div className="picture">
-                                    <Image placeholder="blur" blurDataURL={"/images/placeholder.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
-                                </div>
-                                <div className="back">
-                                    <h3>{movie.title}</h3>
-                                    <p className="overview">{movie.overview}</p>
-                                    <div className="more">
-                                        <Link href={`/film/${movie.id}`}><a><button>{"Infos & horaires"}</button></a></Link>
-                                        <button>Réserver</button>
+                        if(index < 2){
+                            return (
+                                <Slide key={index}>
+                                    <div className="picture">
+                                        <Image placeholder="blur" blurDataURL={"/images/placeholder.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} priority />
                                     </div>
-                                </div>
-                            </Slide>
-                        )
+                                    <div className="back">
+                                        <h3>{movie.title}</h3>
+                                        <p className="overview">{movie.overview}</p>
+                                        <div className="more">
+                                            <Link href={`/film/${movie.id}`}><a><button>{"Infos & horaires"}</button></a></Link>
+                                            <button>Réserver</button>
+                                        </div>
+                                    </div>
+                                </Slide>
+                            )
+                        }else{
+                            return (
+                                <Slide key={index}>
+                                    <div className="picture">
+                                        <Image placeholder="blur" blurDataURL={"/images/placeholder.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
+                                    </div>
+                                    <div className="back">
+                                        <h3>{movie.title}</h3>
+                                        <p className="overview">{movie.overview}</p>
+                                        <div className="more">
+                                            <Link href={`/film/${movie.id}`}><a><button>{"Infos & horaires"}</button></a></Link>
+                                            <button>Réserver</button>
+                                        </div>
+                                    </div>
+                                </Slide>
+                            )
+                        }
                     }) : ""}
                     {/* Clone 6 movies to make the animation loop smoother */}
                     {props.data.results ? props.data.results.slice(0, 6).map((movie, index) => {
