@@ -3,25 +3,25 @@ import { Container, Wrapper } from "../styles/StyledTrailer";
 
 export const Trailer = (props) => {
   const TrailerContainer = React.createRef();
-  const [trailer, setTrailer] = useState(null);
+  const [showTrailer, setTrailer] = useState(null);
 
   useEffect(() => {
-    setTrailer(props.trailerUrl)
-    console.log(props);
+    setTrailer(props.show)
+    console.log(props.trailer)
   }, [props]);
 
   return (
     <>
       <Container
         ref={TrailerContainer}
-        style={trailer ? {} : { display: "none" }}
+        style={showTrailer ? {} : { display: "none" }}
         onClick={() => {
             setTrailer(null);
         }}
       >
         <Wrapper>
           <iframe
-            src={trailer ? trailer : ""}
+            src={showTrailer ? props.trailerUrl : ""}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

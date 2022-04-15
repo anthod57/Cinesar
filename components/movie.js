@@ -8,22 +8,7 @@ import { HOST } from '../config'
 export const Movie = (props) => {
 
     const TrailerContainer = React.createRef();
-    const [showTrailer, setShowTrailer] = useState(true);
-    const [trailer, setTrailer] = useState(null);
-
-    const getTrailer = async (id) => {
-        setShowTrailer(!showTrailer);
-
-        if(showTrailer){
-            await axios.get(`${HOST}/api/trailer?id=${id}`).then(response => {
-                const url = "https://www.youtube.com/embed/" + response.data;
-                setTrailer(url);
-            }).catch((error) => {
-    
-                return null;
-            })
-        }
-    }
+    const [showTrailer, setShowTrailer] = useState(false);
 
     return (
         <>
@@ -31,7 +16,7 @@ export const Movie = (props) => {
                 <div className="bg">
                     <Image quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/original" + props.data.backdrop_path} loading="lazy" />
                 </div>
-                <Trailer trailerUrl={trailer} ref={TrailerContainer}></Trailer>
+                <Trailer show={showTrailer} trailerUrl={props.trailer} ref={TrailerContainer}></Trailer>
                 <Wrapper>
                     <h1>{props.data.title}</h1>
                     <div className="meta">
@@ -42,7 +27,7 @@ export const Movie = (props) => {
                         })}
                     </div>
                     <div className="buttons">
-                        <button onClick={() => getTrailer(props.data.id)}>Bande annonce</button>
+                        <button onClick={() => setShowTrailer(true)}>Bande annonce</button>
                         <button>Reserver</button>
                     </div>
                     <div className="overview">
