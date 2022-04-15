@@ -6,8 +6,7 @@ import { Navbar } from '../../../components/navbar'
 import { Footer } from '../../../components/footer'
 import { Movie } from '../../../components/movie'
 import axios from "axios";
-
-const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
+import { HOST } from '../../../config'
 
 const Film = (data) => {
 
