@@ -14,7 +14,7 @@ export const Movies = (props) => {
                 <SliderContainer ref={lazyRoot}>
                     {/* Display 20 max movies */}
                     {props.data.results ? props.data.results.slice(0, 20).map((movie, index) => {
-                        if(index < 6){
+                        if(index < 4){
                             return (
                                 <Slide key={index}>
                                     <div className="picture">
