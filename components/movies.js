@@ -18,7 +18,7 @@ export const Movies = (props) => {
                             return (
                                 <Slide key={index}>
                                     <div className="picture">
-                                        <Image lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} priority />
+                                        <Image placeholder="blur" blurDataURL={"/images/placeholder.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} priority />
                                     </div>
                                     <div className="back">
                                         <h3>{movie.title}</h3>
@@ -34,7 +34,7 @@ export const Movies = (props) => {
                             return (
                                 <Slide key={index}>
                                     <div className="picture">
-                                        <Image lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
+                                        <Image placeholder="blur" blurDataURL={"/images/placeholder.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
                                     </div>
                                     <div className="back">
                                         <h3>{movie.title}</h3>
@@ -53,7 +53,7 @@ export const Movies = (props) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
-                                    <Image lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
+                                    <Image placeholder="blur" blurDataURL={"/images/placeholder.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
                                 </div>
                                 <div className="back">
                                     <h3>{movie.title}</h3>
