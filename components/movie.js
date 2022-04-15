@@ -10,7 +10,7 @@ export const Movie = (props) => {
         <>
             <Container>
                 <div className="bg">
-                    <Image quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/original" + props.data.backdrop_path} priority />
+                    <Image placeholder="blur" blurDataURL={"/images/placeholders/movie-card.jpg"} quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/original" + props.data.backdrop_path} priority />
                 </div>
 
                 {showPlayer && (
@@ -20,7 +20,7 @@ export const Movie = (props) => {
                         </div>
                     </div>
                 )}
-                {console.log(`https://www.youtube.com/embed/${props.trailer}`)}
+
                 <Wrapper>
                     <h1>{props.data.title}</h1>
                     <div className="meta">
