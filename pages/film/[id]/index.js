@@ -7,8 +7,6 @@ import { Footer } from '../../../components/footer'
 import { Movie } from '../../../components/movie'
 import axios from "axios";
 
-const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
-
 const Film = (data) => {
 
     const MENU_LINKS = [
@@ -73,8 +71,8 @@ const Film = (data) => {
 export default Film;
 
 Film.getInitialProps = async (ctx) => {
-    const resMovie = await axios.get(`${HOST}/api/movie?id=${ctx.query.id}`)
-    const resTrailer = await axios.get(`${HOST}/api/trailer?id=${ctx.query.id}`)
+    const resMovie = await axios.get(`/api/movie?id=${ctx.query.id}`)
+    const resTrailer = await axios.get(`/api/trailer?id=${ctx.query.id}`)
     const movie = resMovie.data;
     const trailerUrl = "https://www.youtube.com/embed/" + resTrailer.data;
 

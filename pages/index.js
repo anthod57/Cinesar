@@ -7,8 +7,6 @@ import axios from 'axios'
 import { Newsletter } from '../components/newsletter'
 import { Footer } from '../components/footer'
 
-const HOST =  process.env.VERCEL_URL ? "https://" + process.env.VERCEL_URL : "http://localhost:3000";
-
 export default function Home(data) {
 
 
@@ -84,8 +82,8 @@ export default function Home(data) {
 // Get upcomings and now playing movies
 Home.getInitialProps = async (ctx) => {
 
-    const resNowPlaying = await axios.get(`${HOST}/api/movies?from=now_playing`)
-    const resUpcoming = await axios.get(`${HOST}/api/movies?from=upcoming`)
+    const resNowPlaying = await axios.get(`/api/movies?from=now_playing`)
+    const resUpcoming = await axios.get(`/api/movies?from=upcoming`)
 
     const nowPlaying = resNowPlaying.data;
     const upcoming = resUpcoming.data;
