@@ -14,7 +14,7 @@ export const Movie = (props) => {
         <>
             <Container>
                 <div className="bg">
-                    <Image quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/original" + props.data.backdrop_path} loading="lazy" />
+                    <Image quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/original" + props.data.backdrop_path} priority />
                 </div>
                 <Trailer show={showTrailer} trailerUrl={props.trailer} ref={TrailerContainer}></Trailer>
                 <Wrapper>
