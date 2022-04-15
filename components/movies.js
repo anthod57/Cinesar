@@ -14,7 +14,7 @@ export const Movies = (props) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
-                                    <Image placeholder="blur" blurDataURL="/images/placeholder.jpg" quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="eager" />
+                                    <Image placeholder="blur" blurDataURL="/images/placeholder.jpg" quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} priority />
                                 </div>
                                 <div className="back">
                                     <h3>{movie.title}</h3>
@@ -32,7 +32,7 @@ export const Movies = (props) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
-                                    <Image placeholder="blur" blurDataURL="/images/placeholder.jpg" quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="eager" />
+                                    <Image placeholder="blur" blurDataURL="/images/placeholder.jpg" quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} priority />
                                 </div>
                                 <div className="back">
                                     <h3>{movie.title}</h3>
