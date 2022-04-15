@@ -1,41 +1,15 @@
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
+import axios from "axios";
+
 import { Navbar } from '../../../components/navbar'
 import { Footer } from '../../../components/footer'
 import { Movie } from '../../../components/movie'
-import axios from "axios";
+
 import { HOST } from '../../../config'
+import { MENU_ITEMS } from '../../../data/menu'
 
 const Film = (data) => {
-
-    const MENU_LINKS = [
-        {
-          text: "Accueil",
-          link: "/"
-        },
-        {
-          text: "Horaires",
-          link: "/horaires"
-        },
-        {
-          text: "Films à l'affiche",
-          link: "/films-a-l-affiche"
-        },
-        {
-          text: "Prochainement",
-          link: "/prochainement"
-        },
-        {
-          text: "Informations",
-          link: "/informations"
-        },
-        {
-          text: "Mon compte",
-          link: "/login"
-        },
-      ]
 
       useEffect(() => {
         // Make font-awesome css only load once page is fully loaded to avoid render-blocking
@@ -51,13 +25,14 @@ const Film = (data) => {
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
-            <Navbar menu={MENU_LINKS} active={-1}></Navbar>
+
+            <Navbar menu={MENU_ITEMS} active={-1}></Navbar>
 
             <main>
-                <Movie data={data.movie} trailer={data.trailerUrl}></Movie>
+                <Movie data={data.movie} trailer={data.trailerKey}></Movie>
             </main>
 
-            <Footer menu={MENU_LINKS}></Footer>
+            <Footer menu={MENU_ITEMS}></Footer>
         </>
     )
 }
@@ -65,16 +40,17 @@ const Film = (data) => {
 
 export default Film;
 
+// Get movie informations and youtube trailer video key
 export async function getServerSideProps(ctx) {
   const movieReq = axios.get(`${HOST}/api/movie?id=${ctx.query.id}`)
   const trailerReq = axios.get(`${HOST}/api/trailer?id=${ctx.query.id}`)
 
-  const [movie, trailerUrl] = await Promise.all([movieReq, trailerReq]);
+  const [movie, trailerKey] = await Promise.all([movieReq, trailerReq]);
 
   return {
     props: {
       movie: movie.data,
-      trailerUrl: trailerUrl.data
+      trailerKey: trailerKey.data
     },
   }
 }

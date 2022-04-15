@@ -1,40 +1,18 @@
 import { useEffect } from "react";
 import Head from "next/head";
+import axios from "axios";
+
 import { Navbar } from "../components/navbar";
 import { Movies } from "../components/movies";
 import { News } from "../components/news";
-import axios from "axios";
 import { Newsletter } from "../components/newsletter";
 import { Footer } from "../components/footer";
+
 import { HOST } from "../config";
+import { MENU_ITEMS } from "../data/menu";
+import { NEWS_ITEMS } from "../data/news";
 
 export default function Home(data) {
-  const MENU_LINKS = [
-    {
-      text: "Accueil",
-      link: "/",
-    },
-    {
-      text: "Horaires",
-      link: "/horaires",
-    },
-    {
-      text: "Films à l'affiche",
-      link: "/films-a-l-affiche",
-    },
-    {
-      text: "Prochainement",
-      link: "/prochainement",
-    },
-    {
-      text: "Informations",
-      link: "/informations",
-    },
-    {
-      text: "Mon compte",
-      link: "/login",
-    },
-  ];
 
   useEffect(() => {
     // Make font-awesome css only load once page is fully loaded to avoid render-blocking
@@ -50,26 +28,27 @@ export default function Home(data) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Navbar menu={MENU_LINKS} active={0}></Navbar>
+      <Navbar menu={MENU_ITEMS} active={0}></Navbar>
 
       <main>
-        <section id="movies" style={{ backgroundColor: "#17192e" }}>
-          <Movies
-            title={"Films à l'affiche"}
-            data={data.nowPlaying}
-          ></Movies>
+        <section id="nowplaying" style={{ backgroundColor: "#17192e" }}>
+          <Movies title={"Films à l'affiche"} data={data.nowPlaying}></Movies>
         </section>
+
         <section id="news">
-          <News></News>
+          <News data={NEWS_ITEMS}></News>
         </section>
-        <section style={{ backgroundColor: "#17192e" }}>
+
+        <section id="upcoming" style={{ backgroundColor: "#17192e" }}>
           <Movies title={"Prochainement"} data={data.upcoming}></Movies>
         </section>
+
         <section id="newsletter">
           <Newsletter></Newsletter>
         </section>
       </main>
-      <Footer menu={MENU_LINKS}></Footer>
+
+      <Footer menu={MENU_ITEMS}></Footer>
     </>
   );
 }

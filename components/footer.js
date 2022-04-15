@@ -1,6 +1,7 @@
 import React from 'react'
-import { Container, Copyright, SiteMap } from "../styles/StyledFooter";
 import Link from 'next/link';
+
+import { Container, Copyright, SiteMap } from "../styles/StyledFooter";
 
 export const Footer = (props) => {
     return (
@@ -16,7 +17,7 @@ export const Footer = (props) => {
                     </ul>
                 </SiteMap>
                 <Copyright>
-                    <p>©2022 Sinésar - Crée par <a href="https://anthonydragun.fr/">AD</a></p>
+                    ©2022 Sinésar - Crée par <a href="https://anthonydragun.fr/">AD</a>
                 </Copyright>
             </Container>
         </>

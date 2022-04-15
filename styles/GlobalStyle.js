@@ -17,12 +17,8 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #2B2D42;
         font-family: 'Roboto', sans-serif;
         color: white;
-        overflow-x: hidden;
         font-size: 16px;
-    }
-
-    body {
-
+        overflow-x: hidden;
     }
 
     h1, h2, h3, h4 {
