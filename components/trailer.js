@@ -21,7 +21,7 @@ export const Trailer = (props) => {
         <Wrapper>
           <iframe
             key={showTrailer}
-            src={`https://www.youtube.com/embed/${props.trailerUrl}`}
+            src={showTrailer ? `https://www.youtube.com/embed/${props.trailerUrl}` : ""}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
