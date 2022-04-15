@@ -8,14 +8,6 @@ export const MENU_ITEMS = [
         link: "/horaires",
       },
       {
-        text: "Films à l'affiche",
-        link: "/films-a-l-affiche",
-      },
-      {
-        text: "Prochainement",
-        link: "/prochainement",
-      },
-      {
         text: "Informations",
         link: "/informations",
       },

@@ -105,3 +105,35 @@ export const Wrapper = styled.div`
         }
     }
 `
+
+export const Calendar = styled.div`
+    width: 100%;
+    height: 100%;
+    font-size: 0.8em;
+    margin-top: 1em;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td {
+            text-align: center;
+        }
+
+        th {
+            background-color: #D90429;
+            background: linear-gradient(0deg,rgba(120,2,23,1) 0%,rgba(217,4,41,1) 100%);
+            border: none;
+            padding: 0.5em;
+        }
+
+        td {
+            background-Color: #17192e;
+            padding: 10px 0;
+        }
+    }
+
+    @media only screen and (min-width: 768px){
+        font-size: 1em;
+    }
+`

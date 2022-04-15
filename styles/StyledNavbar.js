@@ -82,6 +82,10 @@ export const Menu = styled.div`
 
         .active {
             background-color: #640003;
+
+            li {
+                background-color: #640003;
+            }
         }
     }
 
