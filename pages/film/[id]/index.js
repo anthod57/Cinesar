@@ -75,7 +75,7 @@ Film.getInitialProps = async (ctx) => {
     const resMovie = await axios.get(`${HOST}/api/movie?id=${ctx.query.id}`)
     const resTrailer = await axios.get(`${HOST}/api/trailer?id=${ctx.query.id}`)
     const movie = resMovie.data;
-    const trailerUrl = "https://www.youtube.com/embed/" + resTrailer.data;
+    const trailerUrl = resTrailer.data;
 
     return {
       data: {
