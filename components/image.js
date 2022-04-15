@@ -48,7 +48,7 @@ const defer = (callback) => {
     return () => window.cancelIdleCallback(handle);
   }
   // Just defer using setTimeout with some random delay otherwise
-  const handle = setTimeout(callback, 2345 + Math.random() * 1000);
+  const handle = setTimeout(callback, 1000);
   return () => clearTimeout(handle);
 };
 

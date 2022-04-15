@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Container, Wrapper } from '../styles/StyledMovie'
 import Image from './image'
 import { Trailer } from './trailer'
