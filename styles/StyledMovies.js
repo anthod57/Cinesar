@@ -42,6 +42,10 @@ export const Slider = styled.div`
             max-width: 500px;
         }
     }   
+
+    a {
+        text-decoration: none;
+    }
 `
 
 export const SliderContainer = styled.div`

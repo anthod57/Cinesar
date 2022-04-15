@@ -1,14 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { Container, Wrapper } from '../styles/StyledMovie'
 import Image from './image'
-import { Trailer } from './trailer'
-import axios from 'axios'
-import { HOST } from '../config'
 
 export const Movie = (props) => {
 
-    const TrailerContainer = React.createRef();
-    const [showTrailer, setShowTrailer] = useState(false);
+    const [showPlayer, setShowPlayer] = useState(false);
 
     return (
         <>
@@ -16,7 +12,15 @@ export const Movie = (props) => {
                 <div className="bg">
                     <Image quality={90} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/original" + props.data.backdrop_path} priority />
                 </div>
-                <Trailer show={showTrailer} trailerUrl={props.trailer} ref={TrailerContainer}></Trailer>
+
+                {showPlayer && (
+                    <div className="player-container" onClick={() => setShowPlayer(false)}>
+                        <div className="player-wrapper">
+                            <iframe src={`https://www.youtube.com/embed/${props.trailer}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture "allowFullScreen></iframe>
+                        </div>
+                    </div>
+                )}
+                {console.log(`https://www.youtube.com/embed/${props.trailer}`)}
                 <Wrapper>
                     <h1>{props.data.title}</h1>
                     <div className="meta">
@@ -27,7 +31,7 @@ export const Movie = (props) => {
                         })}
                     </div>
                     <div className="buttons">
-                        <button onClick={() => setShowTrailer(true)}>Bande annonce</button>
+                        <button onClick={() => {setShowPlayer(true);}}>Bande annonce</button>
                         <button>Reserver</button>
                     </div>
                     <div className="overview">
