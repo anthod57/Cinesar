@@ -59,13 +59,13 @@ export default function Home(data) {
 
       <main>
         <section id="movies" style={{ backgroundColor: "#17192e" }}>
-          <Movies title={"Films à l'affiche"} data={data.movies.nowPlaying}></Movies>
+          <Movies title={"Films à l'affiche"} data={data.nowPlaying}></Movies>
         </section>
         <section id="news">
           <News></News>
         </section>
         <section style={{ backgroundColor: "#17192e" }}>
-          <Movies title={"Prochainement"} data={data.movies.upcoming}></Movies>
+          <Movies title={"Prochainement"} data={data.upcoming}></Movies>
         </section>
         <section id="newsletter">
           <Newsletter></Newsletter>
@@ -81,18 +81,17 @@ export default function Home(data) {
 }
 
 // Get upcomings and now playing movies
-Home.getInitialProps = async (ctx) => {
-    console.log(process.env.NODE_ENV);
-    const resNowPlaying = await axios.get(`${HOST}/api/movies?from=now_playing`)
-    const resUpcoming = await axios.get(`${HOST}/api/movies?from=upcoming`)
+export async function getServerSideProps(ctx) {
+  const resNowPlaying = await axios.get(`${HOST}/api/movies?from=now_playing`)
+  const resUpcoming = await axios.get(`${HOST}/api/movies?from=upcoming`)
 
-    const nowPlaying = resNowPlaying.data;
-    const upcoming = resUpcoming.data;
+  const nowPlaying = resNowPlaying.data;
+  const upcoming = resUpcoming.data;
 
-    return {
-      movies: {
-        nowPlaying,
-        upcoming
-      },
-    }
+  return {
+    props: {
+      nowPlaying,
+      upcoming
+    },
+  }
 }

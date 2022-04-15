@@ -56,7 +56,7 @@ const Film = (data) => {
             <Navbar menu={MENU_LINKS} active={-1}></Navbar>
 
             <main>
-                <Movie data={data.data.movie} trailer={data.data.trailerUrl}></Movie>
+                <Movie data={data.movie} trailer={data.trailerUrl}></Movie>
             </main>
 
             <Footer menu={MENU_LINKS}></Footer>
@@ -71,14 +71,14 @@ const Film = (data) => {
 
 export default Film;
 
-Film.getInitialProps = async (ctx) => {
+export async function getServerSideProps(ctx) {
     const resMovie = await axios.get(`${HOST}/api/movie?id=${ctx.query.id}`)
     const resTrailer = await axios.get(`${HOST}/api/trailer?id=${ctx.query.id}`)
     const movie = resMovie.data;
     const trailerUrl = "https://www.youtube.com/embed/" + resTrailer.data;
 
     return {
-      data: {
+      props: {
         movie,
         trailerUrl
       },

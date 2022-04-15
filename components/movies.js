@@ -20,7 +20,7 @@ export const Movies = (props) => {
                                     <h3>{movie.title}</h3>
                                     <p className="overview">{movie.overview}</p>
                                     <div className="more">
-                                        <Link href={`/film/${movie.id}`}><button>{"Infos & horaires"}</button></Link>
+                                        <Link href={`/film/${movie.id}`}><a><button>{"Infos & horaires"}</button></a></Link>
                                         <button>Réserver</button>
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@ export const Movies = (props) => {
                                     <h3>{movie.title}</h3>
                                     <p className="overview">{movie.overview}</p>
                                     <div className="more">
-                                        <Link href={`/film/${movie.id}`}><button>{"Infos & horaires"}</button></Link>
+                                        <Link href={`/film/${movie.id}`}><a><button>{"Infos & horaires"}</button></a></Link>
                                         <button>Réserver</button>
                                     </div>
                                 </div>
