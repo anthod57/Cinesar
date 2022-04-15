@@ -11,10 +11,10 @@ export const Movies = (props) => {
 
     return (
         <>
-            <Slider ref={lazyRoot}>
+            <Slider>
                 <h2>{props.title}</h2>
 
-                <SliderContainer>
+                <SliderContainer ref={lazyRoot}>
 
                     {/* Display 20 max movies */}
 
