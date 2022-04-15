@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { Navbar } from '../../../components/navbar'
 import { Footer } from '../../../components/footer'
 import { Movie } from '../../../components/movie'
-import { HOST } from '../../../config'
 import axios from "axios";
 
 const Film = (data) => {
