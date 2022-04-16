@@ -32,9 +32,9 @@ export const Events = (props) => {
                                             </a>
                                         </Link>
 
-                                        <p className="preview">
+                                        <div className="preview">
                                             {parse(article.text)}
-                                        </p>
+                                        </div>
 
                                         <div className="meta">
                                             <span className="post-date">{article.postDate}</span>
