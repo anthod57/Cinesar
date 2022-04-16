@@ -70,7 +70,7 @@ export const Movie = (props) => {
 
                                 {currentWeek().map((day,index) => {
                                     if(moment(day).isSame(new Date(), "day")){
-                                        return (<th key={index}>Aujourd'hui</th>)
+                                        return (<th key={index}>{"Aujourd'hui"}</th>)
                                     }else{
                                         return (<th key={index}>{formatDate(day)}</th>)
                                     }
