@@ -11,10 +11,10 @@ export const Movies = (props) => {
 
     return (
         <>
-            <Slider>
+            <Slider ref={lazyRoot}>
                 <h2>{props.title}</h2>
 
-                <SliderContainer ref={lazyRoot}>
+                <SliderContainer>
 
                     {/* Display 20 max movies */}
 
@@ -22,7 +22,7 @@ export const Movies = (props) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
-                                    <Image placeholder="blur" blurDataURL={"/images/placeholders/movie-card.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
+                                    <Image lazyBoundary="100px" placeholder="blur" blurDataURL={"/images/placeholders/movie-card.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
                                 </div>
 
                                 <div className="back">
@@ -45,7 +45,7 @@ export const Movies = (props) => {
                         return (
                             <Slide key={index}>
                                 <div className="picture">
-                                    <Image placeholder="blur" blurDataURL={"/images/placeholders/movie-card.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
+                                    <Image placeholder="blur" lazyBoundary="100px" blurDataURL={"/images/placeholders/movie-card.jpg"} lazyRoot={lazyRoot} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} loading="lazy" />
                                 </div>
 
                                 <div className="back">
