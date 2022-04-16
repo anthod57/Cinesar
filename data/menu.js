@@ -8,6 +8,10 @@ export const MENU_ITEMS = [
         link: "/horaires",
       },
       {
+        text: "Évenements",
+        link: "/evenements",
+      },
+      {
         text: "Informations",
         link: "/informations",
       },

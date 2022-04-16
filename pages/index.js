@@ -4,13 +4,13 @@ import axios from "axios";
 
 import { Navbar } from "../components/navbar";
 import { Movies } from "../components/movies";
-import { News } from "../components/news";
+import { Events } from "../components/events";
 import { Newsletter } from "../components/newsletter";
 import { Footer } from "../components/footer";
 
 import { HOST } from "../config";
 import { MENU_ITEMS } from "../data/menu";
-import { NEWS_ITEMS } from "../data/news";
+import { EVENTS_ITEMS } from "../data/events";
 
 export default function Home(data) {
 
@@ -35,8 +35,8 @@ export default function Home(data) {
           <Movies title={"Films à l'affiche"} data={data.nowPlaying}></Movies>
         </section>
 
-        <section id="news">
-          <News data={NEWS_ITEMS}></News>
+        <section id="events">
+          <Events data={EVENTS_ITEMS}></Events>
         </section>
 
         <section id="upcoming" style={{ backgroundColor: "#17192e" }}>
