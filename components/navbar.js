@@ -42,6 +42,12 @@ export const Navbar = (props) => {
                         <ul>
 
                             {props.menu?.map((item, index) => {
+                                if(props.currentUser){
+                                    if(item.hideIfLogged) return;
+                                }else{
+                                    if(item.loginRequired) return;
+                                }
+
                                 return (
                                     <Link key={index} href={item.link}><a><li onClick={showMenu}>{item.text}</li></a></Link>
                                 )
