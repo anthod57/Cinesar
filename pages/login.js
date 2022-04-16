@@ -1,22 +1,17 @@
 import { useEffect } from "react";
 import Head from "next/head";
-import { getAuth } from "firebase/auth";
-
 
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
+import { LoginForm } from "../components/loginform";
 
 import { MENU_ITEMS } from "../data/menu";
-import { LoginForm } from "../components/loginform";
 
 
 
 export default function Login() {
 
-    const auth = getAuth();
-
     useEffect(() => {
-        console.log(auth);
         document.getElementById("font-awesome").setAttribute("media", "all");
     })
 
@@ -30,11 +25,11 @@ export default function Login() {
                 <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
             </Head>
 
-            <Navbar currentUser={auth.currentUser ? auth.currentUser : null} menu={MENU_ITEMS} active={4}></Navbar>
+            <Navbar menu={MENU_ITEMS} active={4}></Navbar>
 
             <main>
                 <section id="login">
-                    <LoginForm auth={auth}></LoginForm>
+                    <LoginForm></LoginForm>
                 </section>
             </main>
 

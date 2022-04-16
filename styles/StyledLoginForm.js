@@ -53,7 +53,6 @@ export const Wrapper = styled.div`
         text-align: center;
         font-weight: bold;
         color: #D90429;
-        display: none;
     }
 
     @media only screen and (min-width: 768px){

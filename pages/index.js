@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import Head from "next/head";
 import axios from "axios";
-import { getAuth } from "firebase/auth";
-
+import useAuth from "../lib/firebaseAuth";
 
 import { Navbar } from "../components/navbar";
 import { Movies } from "../components/movies";
@@ -16,7 +15,7 @@ import { EVENTS_ITEMS } from "../data/events";
 
 export default function Home(data) {
 
-  const auth = getAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
 
@@ -33,7 +32,7 @@ export default function Home(data) {
         <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
       </Head>
 
-      <Navbar currentUser={auth.currentUser ? auth.currentUser : null} menu={MENU_ITEMS} active={0}></Navbar>
+      <Navbar currentUser={user ? user : null} menu={MENU_ITEMS} active={0}></Navbar>
 
       <main>
         <section id="nowplaying" style={{ backgroundColor: "#17192e" }}>

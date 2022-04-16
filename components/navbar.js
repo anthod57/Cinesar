@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
+import useAuth from "../lib/firebaseAuth";
 
 import { Nav, Container, LogoContainer, MobileMenuIcon, Menu } from "../styles/StyledNavbar";
 
@@ -7,6 +8,7 @@ export const Navbar = (props) => {
 
     const [showMobileMenu, setMobileMenu] = useState(false);
     const MenuRef = React.createRef();
+    const { user } = useAuth();
 
     useEffect(() => {
         // Make current link active (depends of props.active index)
@@ -40,9 +42,8 @@ export const Navbar = (props) => {
 
                     <Menu ref={MenuRef} style={{ right: "-50%" }}>
                         <ul>
-
                             {props.menu?.map((item, index) => {
-                                if(props.currentUser){
+                                if(user){
                                     if(item.hideIfLogged) return;
                                 }else{
                                     if(item.loginRequired) return;
