@@ -71,8 +71,8 @@ export const LoginForm = (props) => {
                     <span className="error" ref={errorSpan}></span>
 
                     <div className="more">
-                        <a href="/register"><span>{"S'inscrire"}</span></a>
-                        <a href="/register"><span>Mot de passe oublié</span></a>
+                        <Link href="/register"><a><span>{"S'inscrire"}</span></a></Link>
+                        <Link href="/"><a><span>Mot de passe oublié</span></a></Link>
                     </div>
                 </Wrapper>
             </Container>

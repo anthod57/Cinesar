@@ -1,6 +1,7 @@
 import React, {useEffect , useState} from 'react'
 import { app, db } from '../lib/firebaseConfig'
 import { useRouter } from 'next/router'
+import Link from 'next/link';
 
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { setDoc, doc } from 'firebase/firestore';
@@ -92,7 +93,7 @@ export const RegisterForm = () => {
                     <span className="error" ref={errorSpan}></span>
 
                     <div className="more">
-                        <a href="/login"><span>Se connecter</span></a>
+                        <Link href="/login"><a><span>Se connecter</span></a></Link>
                     </div>
                 </Wrapper>
             </Container>
