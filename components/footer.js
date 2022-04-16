@@ -11,6 +11,8 @@ export const Footer = (props) => {
                     <SiteMap>
                         <ul>
                             {props.menu?.map((item, index) => {
+                                if(item.loginRequired) return;
+                                
                                 return (
                                     <Link key={index} href={item.link}><a><li>{item.text}</li></a></Link>
                                 )
