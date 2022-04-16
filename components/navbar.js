@@ -29,7 +29,9 @@ export const Navbar = (props) => {
             <Nav>
                 <Container>
                     <LogoContainer>
-                        <h2>CinéSar</h2>
+                        <Link href="/">
+                                <h2>CinéSar</h2>
+                        </Link>
                     </LogoContainer>
 
                     <MobileMenuIcon onClick={showMenu}>

@@ -11,12 +11,12 @@ export const Events = (props) => {
             <Container>
                 <h2>{props.title}</h2>
 
-                <Wrapper>
+                <Wrapper fullScreen={props.fullScreen}>
 
                     {props.data?.map((article, index) => {
                         if (props.current != article.slug) {
                             return (
-                                <Article key={index}>
+                                <Article key={index} fullScreen={props.fullScreen}>
                                     <Link href={`/evenements/${article.slug}`}>
                                         <a>
                                             <div className="illustration">

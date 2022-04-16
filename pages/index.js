@@ -36,7 +36,7 @@ export default function Home(data) {
         </section>
 
         <section id="events">
-          <Events data={EVENTS_ITEMS}></Events>
+          <Events title="Évenements" data={EVENTS_ITEMS}></Events>
         </section>
 
         <section id="upcoming" style={{ backgroundColor: "#17192e" }}>

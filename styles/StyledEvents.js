@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`  
     max-width: 1100px;
     margin: auto;
+
     h2 {
         margin: 1em 0;
         padding-left: 0.5em;
@@ -24,24 +25,36 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    
 
     @media only screen and (min-width: 768px){
-        flex-direction: row;
+        flex-direction: ${props => props.fullScreen ? "column" : "row"};
     }
 `
 
 export const Article = styled.div`
     width: 80%;
-    height: 400px;
+    height: 100%;
     margin: auto;
     margin-bottom: 1em;
     display: flex;
     flex-direction: column;
+    margin: auto;
 
     .illustration {
         width: 100%;
         height: 300px;
         position: relative;
+
+        img {
+            transition: all ease-in-out 0.2s;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
     }
 
     .text {
@@ -80,8 +93,9 @@ export const Article = styled.div`
 
     @media only screen and (min-width: 768px){
         flex-direction: row;
-        width: 500px;
+        width: ${props => props.fullScreen ? "100%" : "500px"};
         height: 150px;
+        margin: ${props => props.fullScreen ? "0.5em" : "auto auto 1em auto"};
 
         .illustration {
             aspect-ratio: 2/1;
@@ -96,10 +110,10 @@ export const Article = styled.div`
             }
 
             .preview {
-                -webkit-line-clamp: 2; /* number of lines to show */
-                    line-clamp: 2; 
+                -webkit-line-clamp: ${props => props.fullScreen ? "4" : "2"};
+                    line-clamp: ${props => props.fullScreen ? "4" : "2"};; 
                 -webkit-box-orient: vertical;
-                height: 2.2em;
+                height: ${props => props.fullScreen ? "4.4em" : "2.2em"};
             }
         }
     }

@@ -39,6 +39,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: auto;
         padding-top: 80px;
         overflow-x: hidden;
+        min-height: 100vh;
     }
 
     section {
