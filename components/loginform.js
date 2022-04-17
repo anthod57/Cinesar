@@ -1,13 +1,11 @@
 import React, {useEffect , useState} from 'react'
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import useAuth from '../lib/firebaseAuth';
 
 import { Container, Wrapper } from "../styles/StyledLoginForm"
 
-export const LoginForm = (props) => {
+export const LoginForm = ({auth}) => {
 
-    const auth = useAuth();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");   

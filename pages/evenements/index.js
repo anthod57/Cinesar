@@ -3,15 +3,17 @@ import Head from 'next/head'
 
 import { Navbar } from "../../components/navbar"
 import { Footer } from '../../components/footer'
-import { Event } from '../../components/event'
 
 import { MENU_ITEMS } from '../../data/menu'
 import { EVENTS_ITEMS } from '../../data/events'
 import { Events } from '../../components/events'
+import useAuth from '../../lib/firebaseAuth'
 
 // No API or DB call here, only using local data as sample
 
 const Evenement = (data) => {
+
+    const auth = useAuth();
 
       useEffect(() => {
         // Make font-awesome css only load once page is fully loaded to avoid render-blocking

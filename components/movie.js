@@ -9,16 +9,12 @@ export const Movie = (props) => {
     const [showPlayer, setShowPlayer] = useState(false);
 
     const currentWeek = () => {
-        let curr = new Date;
-        let week = [];
-
-        for (let i = 1; i <= 7; i++) {
-            let first = curr.getDate() - curr.getDay() + i 
-            let day = new Date(curr.setDate(first)).toISOString().slice(0, 10)
-            week.push(day)
+        let days = [];
+        for (let index = 1; index < 8; index++) {
+            days.push(moment(Date.now()).startOf('week').isoWeekday(index));
         }
 
-        return week;
+        return days;
     }
 
     const formatDate = (date) => {

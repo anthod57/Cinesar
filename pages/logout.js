@@ -7,9 +7,14 @@ import useAuth from '../lib/firebaseAuth';
 export default function Logout() {
 
     const auth = useAuth();
+    const router = useRouter();
 
     useEffect(() => {
-        auth.logout();
+        if(auth.user){
+            auth.logout();
+        }
+
+        router.replace("/");
     })
 
 

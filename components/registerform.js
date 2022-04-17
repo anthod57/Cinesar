@@ -1,12 +1,9 @@
 import React, {useEffect , useState} from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link';
-import useAuth from '../lib/firebaseAuth';
 import { Container, Wrapper } from "../styles/StyledRegisterForm"
 
-export const RegisterForm = () => {
-
-    const auth = useAuth();
+export const RegisterForm = ({auth}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -14,10 +11,6 @@ export const RegisterForm = () => {
     const [lastName, setLastName] = useState("");
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState("");
-
-    useEffect(() => {
-        console.log(auth.error);
-    }, [auth])
 
     return (
         <>
@@ -32,7 +25,7 @@ export const RegisterForm = () => {
                         <input onChange={(input) => setPassword(input.target.value)} type="password" id="password" name="password" placeholder="Mot de passe *" />
                         <input onChange={(input) => setAddress(input.target.value)} type="text" id="address" name="address" placeholder="Adresse *" />
                         <input onChange={(input) => setPhone(input.target.value)} type="text" id="phone" name="phone" placeholder="Numéro de téléphone *" />
-                        <button onClick={() => auth.register({email, password, firstName, lastName, address, phone})}>Inscription</button>
+                        <button onClick={() => {auth.register({email, password, firstName, lastName, address, phone})}}>Inscription</button>
                     </div>
                     
                     {auth.error && (
