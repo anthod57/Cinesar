@@ -1,13 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Image from "./image";
 import Link from 'next/link';
 
 import { Slider, SliderContainer, Slide } from '../styles/StyledMovies';
+import { useDispatch } from 'react-redux';
+import { addItem, clearItems } from '../redux/features/cartSlice';
 
 export const Movies = (props) => {
 
     {/* Using lazyroot avoid lazy images not showing on scrollable div */ }
     const lazyRoot = React.createRef();
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        // dispatch(clearItems(0));
+    }, [])
 
     return (
         <>
@@ -32,7 +40,7 @@ export const Movies = (props) => {
 
                                     <div className="more">
                                         <Link href={`/film/${movie.id}`}><a><button>{"Infos & horaires"}</button></a></Link>
-                                        <button>Réserver</button>
+                                        <button onClick={() => {dispatch(addItem(movie))}}>Réserver</button>
                                     </div>
                                 </div>
                             </Slide>

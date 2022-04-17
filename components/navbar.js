@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
 import useAuth from "../lib/firebaseAuth";
 
-import { Nav, Container, LogoContainer, MobileMenuIcon, Menu } from "../styles/StyledNavbar";
+import { Nav, Container, LogoContainer, MobileMenuIcon, Menu, Cart } from "../styles/StyledNavbar";
+
+
 
 export const Navbar = (props) => {
 
@@ -57,6 +59,9 @@ export const Navbar = (props) => {
                         </ul>
                     </Menu>
                 </Container>
+                <Cart>
+                    <Link href="/cart"><i className="fa-solid fa-ticket"></i></Link>
+                </Cart>
             </Nav>
         </>
     )

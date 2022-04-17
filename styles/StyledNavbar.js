@@ -118,3 +118,37 @@ export const Menu = styled.div`
         }
     }
 `;
+
+export const Cart = styled.div`
+    position: fixed;
+    bottom: 100px;
+    right: -40px;
+    z-index: 99;
+    background-color: red;
+    width: 80px;
+    height: 80px;
+    border-radius: 20px 0px 0px 20px;
+    background-color: #D90429;
+    background: linear-gradient(0deg,rgba(120,2,23,1) 0%,rgba(217,4,41,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    transition: all 0.5s;
+    opacity: 0.5;
+    cursor: pointer;
+
+    i {
+        transform: rotate(90px);
+    }
+
+    &:hover {
+        opacity: 1;
+        right: 0px;
+    }
+
+    @media only screen and (min-width: 768px){
+        font-size: 2.5em;
+    }
+
+`;
