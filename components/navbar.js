@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link';
 import useAuth from "../lib/firebaseAuth";
 
-import { Nav, Container, LogoContainer, MobileMenuIcon, Menu, Cart } from "../styles/StyledNavbar";
-
-
+import { Nav, Container, LogoContainer, MobileMenuIcon, Menu } from "../styles/StyledNavbar";
+import { Cart } from './cart';
+import { useSelector } from "react-redux";
+import { getItems } from "../redux/features/cartSlice";
 
 export const Navbar = (props) => {
 
     const [showMobileMenu, setMobileMenu] = useState(false);
     const MenuRef = React.createRef();
     const { user } = useAuth();
+    const items = useSelector(getItems);
 
     useEffect(() => {
         // Make current link active (depends of props.active index)
@@ -60,7 +62,6 @@ export const Navbar = (props) => {
                     </Menu>
                 </Container>
                 <Cart>
-                    <Link href="/cart"><i className="fa-solid fa-ticket"></i></Link>
                 </Cart>
             </Nav>
         </>

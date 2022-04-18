@@ -3,8 +3,12 @@ import { Container, Wrapper, Calendar } from "../styles/StyledPlanning";
 import Image from './image';
 import moment from 'moment/min/moment-with-locales';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/features/cartSlice';
 
 export const Planning = (props) => {
+
+    const dispatch = useDispatch();
 
     const currentWeek = () => {
         let days = [];
@@ -56,7 +60,7 @@ export const Planning = (props) => {
 
                                             <div className="buttons">
                                                 <Link href={`/film/${movie.id}`}><a><button>Détails</button></a></Link>
-                                                <Link href={`/film/${movie.id}`}><a><button>Réserver</button></a></Link>
+                                                <a><button onClick={() => {dispatch(addItem(movie))}}>Réserver</button></a>
                                             </div>
                                         </div>
                                     </div>

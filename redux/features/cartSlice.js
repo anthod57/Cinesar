@@ -10,14 +10,21 @@ const cartSlice = createSlice({
     reducers: {
         addItem: (state, action) => {
             const index = state.items.findIndex(x => x.movie.id == action.payload.id)
-            if(index > -1){
-                state.items = [...state.items, {movie: action.payload, count: state.items[index].count + 1}];
-                state.items.splice(index, 1);
-            }else{
+            if(index == -1){
                 state.items = [...state.items, {movie: action.payload, count: 1}];
             }
-
-            console.log(state.items);
+        },
+        setCount: (state, action) => {
+            const index = state.items.findIndex(x => x.movie.id == action.payload.movie.id)
+            if(index > -1){
+                state.items[index] = {movie: action.payload.movie, count: action.payload.count};
+            }
+        },
+        removeItem: (state, action) => {
+            const index = state.items.findIndex(x => x.movie.id == action.payload.id);
+            if(index > -1){
+                state.items.splice(index, 1);
+            }
         },
         clearItems: (state, action) => {
             state.items = [];
@@ -25,6 +32,6 @@ const cartSlice = createSlice({
     }
 });
 
-export const { addItem, clearItems } = cartSlice.actions
+export const { addItem, clearItems, removeItem, setCount } = cartSlice.actions
 export const getItems = (state) => state.items;
 export default cartSlice.reducer

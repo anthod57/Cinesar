@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { Slider, SliderContainer, Slide } from '../styles/StyledMovies';
 import { useDispatch } from 'react-redux';
-import { addItem, clearItems } from '../redux/features/cartSlice';
+import { addItem } from '../redux/features/cartSlice';
 
 export const Movies = (props) => {
 

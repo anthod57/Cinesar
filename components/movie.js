@@ -3,10 +3,13 @@ import Image from './image'
 import moment from 'moment/min/moment-with-locales';
 
 import { Container, Wrapper, Calendar } from '../styles/StyledMovie'
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/features/cartSlice';
 
 export const Movie = (props) => {
 
     const [showPlayer, setShowPlayer] = useState(false);
+    const dispatch = useDispatch();
 
     const currentWeek = () => {
         let days = [];
@@ -53,7 +56,7 @@ export const Movie = (props) => {
 
                     <div className="buttons">
                         <button onClick={() => { setShowPlayer(true); }}>Bande annonce</button>
-                        <button>Reserver</button>
+                        <button onClick={() => {dispatch(addItem(movie))}}>Réserver</button>
                     </div>
 
                     <div className="overview">
