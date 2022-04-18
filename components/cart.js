@@ -43,7 +43,7 @@ export const Cart = () => {
                             <div className="ticket-content">
                                 <i onClick={() => dispatch(removeItem(item.movie))} className="fa-solid fa-close"></i>
                                 <h4>{item.movie.title}</h4>
-                                <label for="date">Date: </label>
+                                <label htmlFor="date">Date: </label>
                                 <select name="date">
                                     <option value="01/01/01-13h00">01/01/01 13h00</option>
                                     <option value="01/01/01-15h45">01/01/01 15h45</option>
@@ -53,7 +53,7 @@ export const Cart = () => {
                                     <option value="03/01/01-20h45">03/01/01 20h45</option>
                                     <option value="03/01/01-23h15">03/01/01 23h15</option>
                                 </select>
-                                <label for="quantity">Quantité: </label>
+                                <label htmlFor="quantity">Quantité: </label>
                                 <input type="number" id="quantity" name="quantity" min="1" max="99" defaultValue="1" onChange={(event) => dispatch(setCount({ movie: item.movie, count: event.target.value }))}></input>
                             </div>
                         </Ticket>
