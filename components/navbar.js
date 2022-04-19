@@ -7,6 +7,9 @@ import { Cart } from './cart';
 import { useSelector } from "react-redux";
 import { getItems } from "../redux/features/cartSlice";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
+
 export const Navbar = (props) => {
 
     const [showMobileMenu, setMobileMenu] = useState(false);
@@ -41,10 +44,11 @@ export const Navbar = (props) => {
                     </LogoContainer>
 
                     <MobileMenuIcon onClick={showMenu}>
-                        <i className="fa-solid fa-bars"></i>
+                        <FontAwesomeIcon icon={solid('bars')} />
                     </MobileMenuIcon>
 
                     <Menu ref={MenuRef} style={{ right: "-50%" }}>
+                        {/* Display links depending of login state */}
                         <ul>
                             {props.menu?.map((item, index) => {
                                 if(user){
@@ -57,7 +61,6 @@ export const Navbar = (props) => {
                                     <Link key={index} href={item.link}><a><li onClick={showMenu}>{item.text}</li></a></Link>
                                 )
                             })}
-
                         </ul>
                     </Menu>
                 </Container>

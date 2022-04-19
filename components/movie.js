@@ -56,13 +56,14 @@ export const Movie = (props) => {
 
                     <div className="buttons">
                         <button onClick={() => { setShowPlayer(true); }}>Bande annonce</button>
-                        <button onClick={() => {dispatch(addItem(movie))}}>Réserver</button>
+                        <button onClick={() => {dispatch(addItem(props.data))}}>Réserver</button>
                     </div>
 
                     <div className="overview">
                         {props.data.overview}
                     </div>
 
+                    {/* Just show some examples */}
                     <Calendar>
                         <table>
                             <tr>

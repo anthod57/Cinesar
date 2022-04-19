@@ -18,12 +18,6 @@ export const MENU_ITEMS = [
         hideIfLogged: false
       },
       {
-        text: "Informations",
-        link: "/informations",
-        loginRequired: false,
-        hideIfLogged: false
-      },
-      {
         text: "Se connecter",
         link: "/login",
         loginRequired: false,
@@ -31,7 +25,7 @@ export const MENU_ITEMS = [
       },
       {
         text: "Mon compte",
-        link: "/mon-compte",
+        link: "/account",
         loginRequired: true,
         hideIfLogged: false
       },

@@ -8,15 +8,7 @@ import { Event } from '../../../components/event'
 import { MENU_ITEMS } from '../../../data/menu'
 import { EVENTS_ITEMS } from '../../../data/events'
 
-// No API or DB call here, only using local data as sample
-
 const Evenement = (data) => {
-
-      useEffect(() => {
-        // Make font-awesome css only load once page is fully loaded to avoid render-blocking
-        document.getElementById("font-awesome").setAttribute("media", "all");
-      }, [])
-
 
     return (
         <>

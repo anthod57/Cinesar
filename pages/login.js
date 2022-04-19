@@ -16,10 +16,6 @@ export default function Login() {
     const auth = useAuth();
     const router = useRouter();
 
-    useEffect(() => {
-        document.getElementById("font-awesome").setAttribute("media", "all");
-    }, [])
-
     if (!auth.user) {
         return (
             <>
@@ -30,7 +26,7 @@ export default function Login() {
                     <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
                 </Head>
 
-                <Navbar menu={MENU_ITEMS} active={4}></Navbar>
+                <Navbar menu={MENU_ITEMS} active={3}></Navbar>
 
                 <main>
                     <section id="login">

@@ -65,6 +65,8 @@ export const Planning = (props) => {
                                         </div>
                                     </div>
 
+                                    {/* Just some examples */}
+                                    {/* Current week */}
                                     <Calendar>
                                         <table>
                                             <tr>
@@ -108,6 +110,9 @@ export const Planning = (props) => {
 
                                         </table>
                                     </Calendar>
+
+                                    {/* Next week */}
+
                                     <Calendar>
                                         <table>
                                             <tr>

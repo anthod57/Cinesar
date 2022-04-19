@@ -57,6 +57,10 @@ export const ShowButton = styled.div`
     opacity: ${props => props.show ? "1" : "0.3"};
     transition: all 0.5s;
 
+    .fa-ticket {
+        max-width: 40px;
+    }
+
     &:hover {
         opacity: 1;
     }
@@ -94,11 +98,11 @@ export const Ticket = styled.div`
         width: 100%;
         height: 100%;
 
-        .fa-close {
+        .fa-xmark {
             position: absolute;
             right: 0.5em;
-            font-size: 1.5em;
             cursor: pointer;
+            max-width: 20px;
             color: #17192e;
         }
 

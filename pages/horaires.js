@@ -6,19 +6,10 @@ import { Navbar } from "../components/navbar"
 import { Footer } from '../components/footer'
 
 import { MENU_ITEMS } from '../data/menu'
-import { EVENTS_ITEMS } from '../data/events'
 import { Planning } from '../components/planning'
-import useAuth from '../lib/firebaseAuth'
 import { HOST } from '../config'
 
 const Horaires = (data) => {
-
-    const auth = useAuth();
-
-    useEffect(() => {
-        // Make font-awesome css only load once page is fully loaded to avoid render-blocking
-        document.getElementById("font-awesome").setAttribute("media", "all");
-    }, [])
 
 
     return (

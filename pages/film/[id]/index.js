@@ -10,13 +10,6 @@ import { HOST } from '../../../config'
 import { MENU_ITEMS } from '../../../data/menu'
 
 const Film = (data) => {
-
-      useEffect(() => {
-        // Make font-awesome css only load once page is fully loaded to avoid render-blocking
-        document.getElementById("font-awesome").setAttribute("media", "all");
-      }, [])
-
-
     return (
         <>
             <Head>

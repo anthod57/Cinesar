@@ -17,12 +17,6 @@ export default function Home(data) {
 
   const { user } = useAuth();
 
-  useEffect(() => {
-
-    // Make font-awesome css only load once page is fully loaded to avoid render-blocking
-    document.getElementById("font-awesome").setAttribute("media", "all");
-  }, []);
-
   return (
     <>
       <Head>

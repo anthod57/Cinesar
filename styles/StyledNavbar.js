@@ -46,8 +46,9 @@ export const MobileMenuIcon = styled.div`
         display: none;
     }
 
-    i {
+    svg {
         margin: auto;
+        width: 40px;
     }
 `
 
@@ -117,55 +118,4 @@ export const Menu = styled.div`
             }
         }
     }
-`;
-
-export const Cart = styled.div`
-    position: fixed;
-    bottom: 100px;
-    right: 0px;
-    z-index: 99;
-    background-color: red;
-    width: 75%;
-    height: 500px;
-    background-color: #212338;
-    transition: all 0.5s;
-    cursor: pointer;
-
-    i {
-        transform: rotate(90px);
-    }
-
-    &:hover {
-        right: 0px;
-    }
-
-    .show-button {
-        background-color: #D90429;
-        border-radius: 20px 0 0 20px;
-        background: linear-gradient(0deg,rgba(120,2,23,1) 0%,rgba(217,4,41,1) 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 20%;
-        height: 15%;
-        font-size: 2em;
-        left: -20%;
-        bottom: 50px;
-        position: absolute;
-
-        i {
-          
-        }
-    }
-
-    @media only screen and (min-width: 768px){
-        width: 400px;
-
-        .show-button {
-            width: 80px;
-            height: 80px;
-            left: -80px;
-        }
-    }
-
 `;

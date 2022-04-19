@@ -3,6 +3,8 @@ import { Container, Wrapper, ShowButton, Ticket } from "../styles/StyledCart";
 import Image from './image';
 import { useSelector, useDispatch } from "react-redux";
 import { getItems, removeItem, setCount } from "../redux/features/cartSlice";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 export const Cart = () => {
 
@@ -40,11 +42,14 @@ export const Cart = () => {
                             <div className="ticket-bg">
                                 <Image placeholder="blur" blurDataURL={"/images/placeholders/movie-card.jpg"} quality={80} layout='fill' objectFit='cover' src={"https://image.tmdb.org/t/p/w500" + item.movie.backdrop_path} loading="lazy" />
                             </div>
+
                             <div className="ticket-content">
-                                <i onClick={() => dispatch(removeItem(item.movie))} className="fa-solid fa-close"></i>
+                                <FontAwesomeIcon onClick={() => dispatch(removeItem(item.movie))} icon={solid('close')} />
                                 <h4>{item.movie.title}</h4>
+
+                                {/* Just show some example */}
                                 <label htmlFor="date">Date: </label>
-                                <select name="date">
+                                <select name="date"> 
                                     <option value="01/01/01-13h00">01/01/01 13h00</option>
                                     <option value="01/01/01-15h45">01/01/01 15h45</option>
                                     <option value="01/01/01-20h30">01/01/01 20h30</option>
@@ -53,6 +58,7 @@ export const Cart = () => {
                                     <option value="03/01/01-20h45">03/01/01 20h45</option>
                                     <option value="03/01/01-23h15">03/01/01 23h15</option>
                                 </select>
+
                                 <label htmlFor="quantity">Quantité: </label>
                                 <input type="number" id="quantity" name="quantity" min="1" max="99" defaultValue="1" onChange={(event) => dispatch(setCount({ movie: item.movie, count: event.target.value }))}></input>
                             </div>
@@ -64,7 +70,7 @@ export const Cart = () => {
                 <button>Paiement</button>
 
                 <ShowButton onClick={() => setShow(!show)} show={show}>
-                    <i className="fa-solid fa-ticket"></i>
+                    <FontAwesomeIcon icon={solid('ticket')} />
                 </ShowButton>
             </Container>
         </>
