@@ -17,6 +17,8 @@ Projet de refonte du site web du cinéma de sarrebourg réalisé en plus ou moin
 
 Ce projet utilise principalement l'API <a href="https://developers.themoviedb.org/">TMDB</a> pour récuperer les films actuellement au cinéma, ainsi que les films qui sortent prochainement. Redux est utilisé pour le systeme de réservation (qui est également persistant). Le systeme d'inscription/connexion est également fonctionnel (crée avec Firebase Authentifcation et Firestore pour le stockage des données), ce système n'a actuellement aucune utilité (la page /account n'affiche seulement que le prénom renseigné lors de l'inscription).
 
+Aucun systeme de paiement n'a été ajouté.
+
 ### Frameworks, Librairies & APIs
 
 Ce projet utilise:
