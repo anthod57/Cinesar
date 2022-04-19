@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container, Wrapper, ShowButton, Ticket } from "../styles/StyledCart";
 import Image from './image';
 import { useSelector, useDispatch } from "react-redux";
-import { getItems, removeItem, setCount } from "../redux/features/cartSlice";
+import { getItems, removeItem, setCount, setDate } from "../redux/features/cartSlice";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 
@@ -44,12 +44,12 @@ export const Cart = () => {
                             </div>
 
                             <div className="ticket-content">
-                                <FontAwesomeIcon onClick={() => dispatch(removeItem(item.movie))} icon={solid('close')} />
+                                <FontAwesomeIcon icon={solid('xmark')} onClick={() => dispatch(removeItem(item.movie))} />
                                 <h4>{item.movie.title}</h4>
 
                                 {/* Just show some example */}
                                 <label htmlFor="date">Date: </label>
-                                <select name="date"> 
+                                <select name="date" defaultValue={item.date ? item.date : ""} onChange={(event) => { dispatch(setDate({movie: item.movie, date: event.target.value}))}}> 
                                     <option value="01/01/01-13h00">01/01/01 13h00</option>
                                     <option value="01/01/01-15h45">01/01/01 15h45</option>
                                     <option value="01/01/01-20h30">01/01/01 20h30</option>
@@ -58,9 +58,8 @@ export const Cart = () => {
                                     <option value="03/01/01-20h45">03/01/01 20h45</option>
                                     <option value="03/01/01-23h15">03/01/01 23h15</option>
                                 </select>
-
                                 <label htmlFor="quantity">Quantité: </label>
-                                <input type="number" id="quantity" name="quantity" min="1" max="99" defaultValue="1" onChange={(event) => dispatch(setCount({ movie: item.movie, count: event.target.value }))}></input>
+                                <input type="number" id="quantity" name="quantity" min="1" max="99" defaultValue={item.count ? item.count : 1} onChange={(event) => dispatch(setCount({ movie: item.movie, count: event.target.value }))}></input>
                             </div>
                         </Ticket>
                     )}
