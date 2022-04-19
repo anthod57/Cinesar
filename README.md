@@ -5,6 +5,7 @@
 
   <p align="center">
     Refonte du site https://www.cinesar-sarrebourg.fr/
+    <br/>
     URL: https://cinema.anthonydragun.fr/
   </p>
 </div>
@@ -13,6 +14,7 @@
 ## À propos
 
 ![Screenshot](home.jpg)
+![Screenshot](insight.jpg)
 
 Projet de refonte du site web du cinéma de sarrebourg réalisé en plus ou moins une semaine, entièrement à but personnel (apprentissage de Redux et Firebase, ainsi que pour mon portfolio).
 
