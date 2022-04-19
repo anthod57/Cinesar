@@ -1,4 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div id="top"></div>
+<br />
+<div align="center">
+  <h3 align="center">Cinésar</h3>
+
+  <p align="center">
+    Refonte du site https://www.cinesar-sarrebourg.fr/
+    URL: https://cinema.anthonydragun.fr/
+  </p>
+</div>
+
+<!-- ABOUT THE PROJECT -->
+## À propos
+
+![Screenshot](home.jpg)
+
+Projet de refonte du site web du cinéma de sarrebourg réalisé en plus ou moins une semaine, entièrement à but personnel (apprentissage de Redux et Firebase, ainsi que pour mon portfolio).
+
+Ce projet utilise principalement l'API <a href="https://developers.themoviedb.org/">TMDB</a> pour récuperer les films actuellement au cinéma, ainsi que les films qui sortent prochainement. Redux est utilisé pour le systeme de réservation (qui est également persistant). Le systeme d'inscription/connexion est également fonctionnel (crée avec Firebase Authentifcation et Firestore pour le stockage des données), ce système n'a actuellement aucune utilité (la page /account n'affiche seulement que le prénom renseigné lors de l'inscription).
+
+### Frameworks, Librairies & APIs
+
+Ce projet utilise:
+
+* [React.js](https://reactjs.org/)
+* [Next.js](https://nextjs.org/)
+* [Styled-Components](https://styled-components.com/)
+* [Firebase (Authentication et Firestore)](https://firebase.google.com/)
+* [Redux (Toolkit, React-Redux, Redux-Persists)](https://redux.js.org/)
+* Axios
+* Moment
+* [Font-Awesome](https://fontawesome.com/)
+* [TMDB API](https://developers.themoviedb.org/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 
 ## Getting Started
 
